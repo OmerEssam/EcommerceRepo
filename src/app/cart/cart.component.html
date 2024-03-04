@@ -1,0 +1,33 @@
+<div class="container my-5 bg-light">
+  <div class="checkOut d-flex justify-content-between align-items-center py-5">
+    <div class="price ">
+      <span class="totalPrice text-main fw-bold fs-4 ps-5">TotalPrice: <span class="text-dark">
+        {{totalPrice}}
+      </span >  EGP</span>
+    </div>
+    <button class="btn btn-primary" (click)="paymentBtn(cartId)">CheckOut</button>
+  </div>
+  <div class="row align-items-center my-3 border-1 border-bottom pb-3" *ngFor="let i of allProducts">
+    <div class="col-md-2" >
+      <div class="img">
+        <img [src]="i.product.imageCover" alt="" class="img-fluid">
+      </div>
+    </div>
+    <div class="col-md-10 d-flex justify-content-between align-items-center p-4">
+      <div>
+        <h1 class="h4">{{i.product.title}}</h1>
+        <p class="text-main">{{i.product.category.name}}</p>
+        <span class="d-block">Price:{{i.price * i.count}}EGP</span>
+        <div class="trash" >
+          <i class="fa-solid fa-trash text-danger cursor-pointer py-3 ps-1" (click)="removeItem(i.product._id )"></i>
+          <span class="text-danger fw-bold" style="font-size: 12px;" > Remove</span>
+        </div>
+      </div>
+      <div>
+        <i class="fa-solid fa-square-minus cursor-pointer text-main" (click)="mins(i.product._id , i.count)"></i>
+        {{i.count}}
+        <i class="fa-solid fa-square-plus cursor-pointer text-main" (click)="add(i.product._id , i.count)"></i>
+      </div>
+    </div>
+  </div>
+</div>
