@@ -13,7 +13,8 @@ import { WishListService } from '../wish-list.service';
 export class HomeComponent implements OnInit {
   productData!:Data[]
   userName!:string
-  isHeart:boolean = false;
+  wishListData!:string
+  isHeart:string[] = [];
   constructor(private _ProductsService:ProductsService, private _cartservices:CartService , private toastEvokeService:ToastEvokeService , private _wishList:WishListService){}
 
   ngOnInit(): void {
@@ -45,6 +46,27 @@ export class HomeComponent implements OnInit {
     this._wishList.addToWishList(id).subscribe({
       next: res =>
       {
+        this.wishListData =res.data
+        for(let i =0 ; i <= this.wishListData.length ; i++){
+          if(this.wishListData[i] == id){
+            this.isHeart.push(id)
+          }
+        }
+        this.toastEvokeService.success('success', res.message).subscribe();
+      }
+
+    })
+  }
+  rmoveFromWishList(id:string){
+    this._wishList.removeFormWishList(id).subscribe({
+      next: res =>
+      {
+        this.wishListData =res.data
+        for(let i =0 ; i <= this.wishListData.length ; i++){
+          if(this.wishListData[i] == id){
+            this.isHeart.shift()
+          }
+        }
         this.toastEvokeService.success('success', res.message).subscribe();
       }
 

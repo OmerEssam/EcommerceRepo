@@ -11,4 +11,7 @@ export class BrandsService {
   getAllBrands():Observable<any>{
     return this._httpclient.get(`${this.baseUrl}/api/v1/brands`)
   }
+  getSpecBrands(id:string):Observable<any>{
+    return this._httpclient.get(`${this.baseUrl}/api/v1/brands/${id}`)
+  }
 }

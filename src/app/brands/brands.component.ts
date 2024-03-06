@@ -7,7 +7,7 @@ import { brands } from '../brands';
   styleUrls: ['./brands.component.css']
 })
 export class BrandsComponent {
-
+  brandssData!:brands | undefined
   brandsData!:brands[]
     constructor(private _brandsServices:BrandsService){}
 
@@ -18,5 +18,11 @@ export class BrandsComponent {
 
       }
     )
+  }
+
+  getSpecBtn(id:string){
+    this._brandsServices.getSpecBrands(id).subscribe({
+      next: res => this.brandssData = res.data
+    })
   }
 }

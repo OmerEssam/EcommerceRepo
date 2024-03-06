@@ -3,8 +3,8 @@
     <div class="col-md-4 col-lg-3 " *ngFor="let items of productData" >
       <div class="product overflow-hidden cursor-pointer position-relative">
         <div class="heart-icon position-absolute">
-          <i class="fa-regular fa-heart fs-3 sss"  (click)="addToWishList(items.id)"></i>
-          <!-- <i class="fa-solid fa-heart text-danger fs-3" ></i> -->
+          <i class="fa-regular fa-heart fs-3 " *ngIf="!isHeart.includes(items.id)"  (click)="addToWishList(items.id)"></i>
+          <i class="fa-solid fa-heart text-danger fs-3" *ngIf="isHeart.includes(items.id)" (click)="  rmoveFromWishList(items.id)"  ></i>
         </div>
         <div [routerLink]="['/productDetials' , items.id]">
           <div class="img">
