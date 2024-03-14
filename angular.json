@@ -24,7 +24,9 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": ["node_modules/@costlydeveloper/ngx-awesome-popup/styles/theme.css","./node_modules/@fortawesome/fontawesome-free/css/all.min.css","./node_modules/bootstrap/dist/css/bootstrap.min.css",
+            "styles": ["node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css",
+            "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css",
+              "node_modules/@costlydeveloper/ngx-awesome-popup/styles/theme.css","./node_modules/@fortawesome/fontawesome-free/css/all.min.css","./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": ["./node_modules/bootstrap/dist/js/bootstrap.bundle.js","./node_modules/bootstrap/dist/js/bootstrap.min.js"]
@@ -94,5 +96,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "17a59a17-c533-4d01-838e-8e017899a4ac"
   }
 }

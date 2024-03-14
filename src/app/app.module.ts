@@ -16,6 +16,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import{HttpClientModule} from '@angular/common/http';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ProductDetialsComponent } from './product-detials/product-detials.component'
 import {
   NgxAwesomePopupModule,
@@ -42,6 +43,7 @@ import { WishlistComponent } from './wishlist/wishlist.component';
   ],
   imports: [
     BrowserModule,
+    CarouselModule,
     AppRoutingModule , ReactiveFormsModule ,HttpClientModule, NgxPaginationModule , NgxAwesomePopupModule.forRoot(), // Essential, mandatory main module.
     DialogConfigModule.forRoot(), // Needed for instantiating dynamic components.
     ConfirmBoxConfigModule.forRoot(), // Needed for instantiating confirm boxes.

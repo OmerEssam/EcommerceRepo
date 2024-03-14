@@ -4,6 +4,9 @@ import { Data } from '../products';
 import { CartService } from '../cart.service';
 import { ToastEvokeService } from '@costlydeveloper/ngx-awesome-popup';
 import { WishListService } from '../wish-list.service';
+import { OwlOptions } from 'ngx-owl-carousel-o';
+import { Categ } from '../categ';
+import { CatService } from '../cat.service';
 
 @Component({
   selector: 'app-home',
@@ -11,11 +14,45 @@ import { WishListService } from '../wish-list.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: true,
+    autoplay:true,
+    touchDrag: false,
+    pullDrag: false,
+    dots: true,
+    navSpeed: 700,
+    navText: ['', ''],
+    items:1,
+  }
+  catSlider: OwlOptions = {
+    loop: true,
+    mouseDrag: false,
+    touchDrag: false,
+    pullDrag: false,
+    dots: true,
+    navSpeed: 700,
+    responsive: {
+      0: {
+        items: 2
+      },
+      400: {
+        items: 3
+      },
+      740: {
+        items: 4
+      },
+      940: {
+        items: 6
+      }
+    },
+  }
   productData!:Data[]
   userName!:string
   wishListData!:string
   isHeart:string[] = [];
-  constructor(private _ProductsService:ProductsService, private _cartservices:CartService , private toastEvokeService:ToastEvokeService , private _wishList:WishListService){}
+  Cat: Categ[] = []
+  constructor(private _ProductsService:ProductsService, private _Cat:CatService, private _cartservices:CartService , private toastEvokeService:ToastEvokeService , private _wishList:WishListService){}
 
   ngOnInit(): void {
     this._ProductsService.allProductsApi().subscribe({
@@ -27,6 +64,13 @@ export class HomeComponent implements OnInit {
 
       }
     })
+
+    this._Cat.getAllCat().subscribe(
+      {
+        next: res => this.Cat = res.data
+        
+      }
+    )
 
   }
 

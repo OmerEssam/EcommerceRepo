@@ -1,6 +1,43 @@
-<div class="container">
-  <div class="row g-4">
-    <div class="col-md-4 col-lg-3 " *ngFor="let items of productData" >
+<div class="row g-0">
+  <div class="col-md-9 img p-0">
+    <owl-carousel-o [options]="customOptions">
+      <ng-template carouselSlide>
+        <img src="assets/images/slider-image-1.jpeg" style="height: 400px;" alt="slider1" class="img-fluid d-block">
+      </ng-template>  
+      <ng-template carouselSlide>
+        <img src="assets/images/slider-image-2.jpeg" style="height: 400px;" alt="slider2" class="img-fluid">
+      </ng-template>  
+      <ng-template carouselSlide>
+        <img src="assets/images/slider-image-3.jpeg" alt="slider3" style="height: 400px;" class="img-fluid">
+      </ng-template>  
+    </owl-carousel-o>
+  </div>
+  <div class="col-md-3 p-0">
+    <img src="./../../assets/images/slide-1.jpeg" height="200" alt="slide1" class="w-100">
+    <img src="./../../assets/images/slider-2.jpeg" height="200" alt="slide1" class="w-100">
+  </div>
+</div>
+<div class="row" *ngIf="Cat.length > 0">
+  <h2>show popular category</h2>
+  <owl-carousel-o [options]="catSlider">
+    <ng-container *ngFor="let slide of Cat">
+      <ng-template carouselSlide>
+        <img height="300" [src]="slide.image" [alt]="slide.name" [title]="slide.name">
+        <p class="text-main text-center">
+          {{slide.name}}
+        </p>
+      </ng-template>
+    </ng-container>
+  </owl-carousel-o>
+</div>
+
+<section *ngIf="productData.length > 0">
+  <h2 class="mb-2">
+    Popular products
+  </h2>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4 col-lg-3 " *ngFor="let items of productData" >
       <div class="product overflow-hidden cursor-pointer position-relative">
         <div class="heart-icon position-absolute">
           <i class="fa-regular fa-heart fs-3 " *ngIf="!isHeart.includes(items.id)"  (click)="addToWishList(items.id)"></i>
@@ -26,3 +63,4 @@
     </div>
   </div>
 </div>
+</section>
