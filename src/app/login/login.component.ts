@@ -11,6 +11,8 @@ export class LoginComponent {
   isLoading:boolean = false;
   errMassage!:string;
   userData:any;
+  typePassword:string = "password"
+  classShow:boolean = true
   forgetPassword:boolean = true;
   verifyCodee:boolean = false;
   resetPass:boolean =false;
@@ -109,5 +111,14 @@ newPassBtn(){
   })
 }
 
+showPassword(){
+  if(this.typePassword == "password"){
+    this.typePassword = "text",
+    this.classShow = false
+  }else(
+    this.typePassword = "password",
+    this.classShow = true
+  )
+}
 
 }

@@ -69,7 +69,7 @@ export class HomeComponent implements OnInit {
     this._Cat.getAllCat().subscribe(
       {
         next: res => this.Cat = res.data
-        
+
       }
     )
 
@@ -112,7 +112,7 @@ export class HomeComponent implements OnInit {
             this.isHeart.shift()
           }
         }
-        this.toastEvokeService.success('success', res.message).subscribe();
+        this.toastEvokeService.warning('success', res.message).subscribe();
       }
 
     })

@@ -8,3 +8,7 @@
   right: 10px;
   opacity: 1;
 }
+.product{
+  border: 1px solid #e2dbdb;
+  border-radius: 10px;
+}

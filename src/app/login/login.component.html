@@ -22,7 +22,11 @@
       </div>
       <div class="mb-3">
         <label>password :</label>
-        <input formControlName="password" type="text" class="form-control" />
+        <span class="position-relative w-100">
+        <input formControlName="password" [type]="typePassword" class="form-control  w-100" />
+          <i class="fa-solid fa-eye position-absolute eyes cursor-pointer" *ngIf="classShow" (click)="showPassword()"></i>
+          <i class="fa-solid fa-eye-slash position-absolute eyes cursor-pointer" *ngIf="!classShow" (click)="showPassword()"></i>
+        </span>
         <div
           *ngIf="
             loginUser.get('password')?.errors &&
