@@ -22,7 +22,7 @@
       </div>
       <div class="mb-3">
         <label>password :</label>
-        <input formControlName="password" type="text" class="form-control">
+        <input formControlName="password" type="password" class="form-control">
          <div *ngIf="register.get('password')?.errors && register.get('password')?.touched" class="alert alert-danger">
             <p *ngIf="register.get('password')?.errors?.['required']">password is requerd</p>
             <p *ngIf="register.get('password')?.errors?.['pattern']">password be start with [A-Z]</p>
@@ -30,7 +30,7 @@
       </div>
       <div class="mb-3">
         <label>rePassword :</label>
-        <input formControlName="rePassword" type="text" class="form-control">
+        <input formControlName="rePassword" type="password" class="form-control">
          <div *ngIf="register.get('rePassword')?.errors && register.get('rePassword')?.touched" class="alert alert-danger">
             <p *ngIf="register.get('rePassword')?.errors?.['required']">password is requerd</p>
             <p *ngIf="register.get('rePassword')?.errors?.['pattern']">password be start with [A-Z]</p>
@@ -41,7 +41,7 @@
         <input formControlName="phone" type="text" class="form-control">
          <div *ngIf="register.get('phone')?.errors && register.get('phone')?.touched" class="alert alert-danger">
             <p *ngIf="register.get('phone')?.errors?.['required']">phone is requerd</p>
-            <p *ngIf="register.get('phone')?.errors?.['pattern']">phone be start with [A-Z]</p>
+            <p *ngIf="register.get('phone')?.errors?.['pattern']">Should Be a Egyptian Number </p>
         </div>
       </div>
 
